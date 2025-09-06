@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Trinity Company — Data Science • ML • Analytics</title>
+    <meta name="description" content="The Trinity Company: Data Science, Machine Learning, Deep Learning, Analytics, Data Engineering, Visualization, Forecasting, Statistical Modeling." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --bg: #070a13;
+            --card: #0e1422;
+            --muted: #9db1c9;
+            --text: #eaf2ff;
+            --brand: #7dd3fc;
+            --brand2: #a78bfa;
+            --brand3: #34d399;
+            --border: rgba(255, 255, 255, .08);
+            --pill: #111827;
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--text);
+            background: radial-gradient(1200px 600px at 80% -10%, rgba(125, 211, 252, .15), transparent 50%), radial-gradient(1000px 500px at -10% 10%, rgba(167, 139, 250, .20), transparent 50%), linear-gradient(180deg, var(--bg), #0b1220 55%, #0c1528 100%);
+            line-height: 1.65;
+        }
+        
+        a {
+            color: var(--brand);
+            text-decoration: none
+        }
+        
+        a:hover {
+            text-decoration: underline
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(7, 10, 19, .55);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            border-bottom: 1px solid var(--border)
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+        
+        .logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            display: grid;
+            place-items: center;
+            color: #0b1020;
+            font-family: "Space Grotesk", Inter;
+            font-weight: 800
+        }
+        
+        .nav a.small {
+            font-size: 14px;
+            color: #cfe1ff
+        }
+        
+        .navlinks {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(125, 211, 252, .10), rgba(167, 139, 250, .10))
+        }
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 28px;
+            align-items: center;
+            padding: 34px 0 12px
+        }
+        
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(28px, 6vw, 54px);
+            line-height: 1.05;
+            font-family: "Space Grotesk", Inter;
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--brand), var(--brand2), var(--brand3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+        
+        .lead {
+            color: var(--muted);
+            font-size: clamp(15px, 2.5vw, 18px);
+            margin-top: 10px
+        }
+        
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px
+        }
+        
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--pill);
+            border: 1px solid var(--border);
+            color: #cae3ff;
+            font-size: 13px
+        }
+        
+        .hero-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 18px;
+            position: relative;
+            overflow: hidden
+        }
+        
+        .pulse {
+            position: absolute;
+            inset: -40px auto auto -40px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle at center, rgba(125, 211, 252, .30), transparent 60%);
+            filter: blur(22px);
+            animation: pulse 5.2s ease-in-out infinite
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(.9)
+            }
+            50% {
+                transform: scale(1.1)
+            }
+        }
+        
+        .hero-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 22px
+        }
+        
+        .card {
+            grid-column: span 12;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all .7s ease
+        }
+        
+        .card.reveal {
+            opacity: 1;
+            transform: translateY(0)
+        }
+        
+        h2.section {
+            margin: 0 0 6px;
+            font-size: 22px;
+            letter-spacing: .2px
+        }
+        
+        .sub {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 8px
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 12px
+        }
+        
+        .service {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border)
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px
+        }
+        
+        .kpis {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 14px
+        }
+        
+        .kpi {
+            flex: 1 1 160px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center
+        }
+        
+        .kpi strong {
+            font-size: 22px;
+            display: block
+        }
+        
+        .roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px
+        }
+        
+        .role {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            font-size: 14px
+        }
+        
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px
+        }
+        
+        .cta {
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(52, 211, 153, .12), rgba(125, 211, 252, .12));
+            font-weight: 600
+        }
+        
+        .ghost {
+            background: transparent
+        }
+        
+        .list {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: #cfe1ff
+        }
+        
+        .founder {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-top: 10px
+        }
+        
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border)
+        }
+        
+        .banner {
+            display: grid;
+            place-items: center;
+            height: 70px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: 1px dashed var(--border);
+            color: #cfe1ff;
+            font-size: 14px
+        }
+        
+        footer {
+            margin: 40px 0 10px;
+            color: #9bb0c8;
+            font-size: 13px;
+            text-align: center
+        }
+        
+        @media(min-width:900px) {
+            .left-7 {
+                grid-column: span 7
+            }
+            .right-5 {
+                grid-column: span 5
+            }
+            .services {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+        /* nice hover lift */
+        
+        .lift {
+            transition: transform .25s ease, box-shadow .25s ease
+        }
+        
+        .lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, .25)
+        }
+        /* floating shapes */
+        
+        .blob {
+            position: absolute;
+            inset: auto 10% -60px auto;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle at 30% 30%, rgba(167, 139, 250, .18), transparent 60%);
+            filter: blur(18px);
+            animation: float 10s ease-in-out infinite
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+            50% {
+                transform: translateY(-14px)
+            }
+        }
+        
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 12px;
+            color: #bcd1ee
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- NAV -->
+        <nav class="nav">
+            <div class="brand">
+                <div class="logo">TT</div>
+                <div>
+                    <div style="font-size:16px">THE <span class="gradient-text">TRINITY</span> COMPANY</div>
+                    <div class="mono">Information Technology & Services</div>
+                </div>
+            </div>
+            <div class="navlinks">
+                <a class="small" href="#services">Services</a>
+                <a class="small" href="#internships">Internships</a>
+                <a class="small" href="#careers">Careers</a>
+                <a class="small" href="#about">About</a>
+                <a class="btn" href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div>
+                <h1>
+                    Building <span class="gradient-text">data-driven futures</span> with Data Science, Machine Learning & Analytics
+                </h1>
+                <p class="lead">
+                    The Trinity Company partners with experts to deliver solutions in
+                    <strong>Data Science</strong>, <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, <strong>Data Engineering</strong>,
+                    <strong>Visualization</strong>, <strong>Forecasting</strong> & <strong>Statistical Modeling</strong>. We also connect talent with <strong>jobs</strong> and <strong>internships</strong>.
+                </p>
+                <div class="chips">
+                    <span class="chip">Data Architecture</span>
+                    <span class="chip">Database Management</span>
+                    <span class="chip">Predictive Analytics</span>
+                    <span class="chip">Statistics</span>
+                </div>
+                <div class="cta-row">
+                    <a href="#internships" class="cta lift">Apply for Internship</a>
+                    <a href="#careers" class="btn lift">See Open Roles</a>
+                </div>
+            </div>
+            <div class="hero-card lift">
+                <div class="pulse"></div>
+                <!-- If you have these files in the same folder, they'll render automatically -->
+                <img class="hero-img" src="Arshad.jpeg" alt="Founder Portrait (Arshad Bagde)" onerror="this.style.display='none'">
+                <div class="banner" style="margin-top:12px">
+                    <img src="5 - Copy.png" alt="The Trinity Company Logo" style="max-height:52px;max-width:92%;object-fit:contain" onerror="this.parentElement.textContent='Place your logo image here: 5 - Copy.png'">
+                </div>
+                <div class="blob"></div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="grid">
+            <div class="card left-7">
+                <h2 class="section">What we do</h2>
+                <div class="sub">End-to-end data solutions with measurable business impact.</div>
+                <div class="services">
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g1" x1="0" x2="24"><stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs></svg>
+                        <div><strong>Data Engineering & Architecture</strong><br><span class="sub">Pipelines, warehousing, governance, and scalable data platforms.</span></div>
+                    </div>
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="url(#g2)" stroke-width="2"/><path d="M12 7v5l3 3" stroke="url(#g2)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g2" x1="0" x2="24"><stop stop-color="#34d399"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs></svg>
+                        <div><strong>Forecasting & Predictive Analytics</strong><br><span class="sub">Time-series, churn, demand & risk models that drive decisions.</span></div>
+                    </div>
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="url(#g3)" stroke-width="2"/><path d="M8 14l3 3 5-6" stroke="url(#g3)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g3" x1="0" x2="24"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs></svg>
+                        <div><strong>Machine & Deep Learning</strong><br><span class="sub">From classic ML to CNN/RNN/Transformers for vision & NLP.</span></div>
+                    </div>
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 17c3-3 5-3 8 0s5 3 8 0" stroke="url(#g4)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="9" r="3" stroke="url(#g4)" stroke-width="2"/><defs><linearGradient id="g4" x1="0" x2="24"><stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs></svg>
+                        <div><strong>Data Visualization & BI</strong><br><span class="sub">Compelling dashboards and narratives for fast decision-making.</span></div>
+                    </div>
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h10M4 10h16M4 14h12M4 18h8" stroke="url(#g5)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g5" x1="0" x2="24"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs></svg>
+                        <div><strong>Statistical Modeling</strong><br><span class="sub">Experimentation, inference, and decision science at scale.</span></div>
+                    </div>
+                    <div class="service lift">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="url(#g6)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g6" x1="0" x2="24"><stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs></svg>
+                        <div><strong>Database Management</strong><br><span class="sub">Design, tuning, and reliability for relational & NoSQL systems.</span></div>
+                    </div>
+                </div>
+                <div class="kpis">
+                    <div class="kpi"><strong>2022</strong>Founded</div>
+                    <div class="kpi"><strong>2–10</strong>Employees</div>
+                    <div class="kpi"><strong>3</strong>Members on LinkedIn</div>
+                </div>
+            </div>
+            <div class="card right-5">
+                <h2 class="section">Work with experts</h2>
+                <div class="sub">We’re enthusiastic about collaborating with domain specialists and research leaders.</div>
+                <ul class="list">
+                    <li>Short-term problem sprints & PoCs</li>
+                    <li>Model audits & performance tuning</li>
+                    <li>Visualization & decision dashboards</li>
+                    <li>Productionizing ML workflows</li>
+                </ul>
+                <div class="cta-row">
+                    <a class="cta lift" href="mailto:thetrinityc@gmail.com?subject=Collaboration%20with%20The%20Trinity%20Company">Propose a Project</a>
+                    <a class="btn ghost lift" href="#contact">Get in touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERNSHIPS -->
+        <section id="internships" class="grid">
+            <div class="card">
+                <h2 class="section">Internships — build industry-level skills</h2>
+                <div class="sub">Real-world experience to put your learning into action. Internships may be paid or unpaid and typically last a semester or summer.</div>
+                <ul class="list">
+                    <li>Hands-on projects in Web Development, Data Engineering, Analytics, Research, Data Science & ML.</li>
+                    <li>Mentorship, peer reviews, and portfolio-ready deliverables.</li>
+                    <li>Exposure to production tools, reproducible workflows, and best practices.</li>
+                </ul>
+                <div class="cta-row">
+                    <a class="cta lift" href="mailto:thetrinityc@gmail.com?subject=Internship%20Application&body=Hi%20Trinity%20Team%2C%0A%0AI%27d%20like%20to%20apply%20for%20an%20internship.%20Please%20find%20my%20resume%20attached.%0A%0AThanks!">Apply via Email</a>
+                    <a class="btn lift" href="tel:+919503447189">Call: +91 9503447189</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREERS -->
+        <section id="careers" class="grid">
+            <div class="card">
+                <h2 class="section">We’re hiring</h2>
+                <div class="sub">Open to freshers and experienced candidates.</div>
+                <div class="roles">
+                    <span class="role">Web Developer</span>
+                    <span class="role">Data Engineer</span>
+                    <span class="role">Data Analyst</span>
+                    <span class="role">Researcher</span>
+                    <span class="role">Data Scientist</span>
+                    <span class="role">Machine Learning Engineer</span>
+                </div>
+                <ul class="list">
+                    <li>Share links to projects/GitHub and any published work.</li>
+                    <li>Highlight coursework in Data Science, ML, Statistics, or Databases.</li>
+                </ul>
+                <div class="cta-row">
+                    <a class="cta lift" href="mailto:thetrinityc@gmail.com?subject=Job%20Application">Send Resume</a>
+                    <a class="btn ghost lift" href="#about">Learn about us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="grid">
+            <div class="card left-7">
+                <h2 class="section">About The Trinity Company</h2>
+                <div class="sub">Founded in 2022 to build scientists in IT & Computer Science fields while solving meaningful data problems.</div>
+                <p>
+                    Our purpose is to connect users with <strong>Data Science jobs</strong> and <strong>internship opportunities</strong> while delivering production-grade analytics for clients. We value curiosity, scientific rigor, and practical impact.
+                </p>
+                <div class="founder">
+                    <img class="avatar" src="Arshad.jpeg" alt="Arshad Bagde" onerror="this.style.display='none'">
+                    <div>
+                        <strong>Arshad Bagde</strong><br> Founder & CEO — The Trinity Company<br>
+                        <span class="sub">Entrepreneur • Data & Research</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card right-5">
+                <h2 class="section">Company Details</h2>
+                <ul class="list">
+                    <li><strong>Industry:</strong> Information Technology & Services</li>
+                    <li><strong>Company size:</strong> 2–10 employees</li>
+                    <li><strong>Founded:</strong> 2022</li>
+                    <li><strong>Email:</strong> <a href="mailto:thetrinityc@gmail.com">thetrinityc@gmail.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+919503447189">+91 9503447189</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="grid">
+            <div class="card">
+                <h2 class="section">Contact</h2>
+                <div class="sub">Have a project, partnership, or want to join us? Let’s talk.</div>
+                <div class="cta-row">
+                    <a class="cta lift" href="mailto:thetrinityc@gmail.com?subject=Hello%20Trinity%20Team">thetrinityc@gmail.com</a>
+                    <a class="btn lift" href="tel:+919503447189">+91 9503447189</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> The Trinity Company • Made with HTML/CSS • Responsive & animated
+        </footer>
+    </div>
+
+    <script>
+        // reveal on scroll
+        const reveal = () => {
+            const cards = document.querySelectorAll('.card');
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('reveal');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, {
+                threshold: .12
+            });
+            cards.forEach(c => io.observe(c));
+        };
+        // smooth anchor
+        const smooth = () => {
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', e => {
+                    const id = a.getAttribute('href').slice(1);
+                    const el = document.getElementById(id);
+                    if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        };
+        document.getElementById('year').textContent = new Date().getFullYear();
+        reveal();
+        smooth();
+    </script>
+</body>
+
+</html>

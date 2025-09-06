@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Trinity Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            color: #fff;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        header nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        header img {
+            height: 50px;
+        }
+        
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        header ul li a:hover {
+            color: #dbeafe;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: #eff6ff;
+            animation: fadeIn 2s ease;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 16px;
+        }
+        
+        .hero p {
+            max-width: 700px;
+            color: #334155;
+        }
+        
+        .section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .card h3 {
+            margin-bottom: 10px;
+            color: #1d4ed8;
+        }
+        
+        .cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .cta a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+        
+        .cta a:hover {
+            background: #2563eb;
+        }
+        
+        .about p {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            color: #475569;
+        }
+        
+        .contact {
+            text-align: center;
+        }
+        
+        .contact p {
+            margin: 8px 0;
+        }
+        
+        footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .founder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .founder img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            margin-bottom: 12px;
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="The Trinity Company Logo">
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#internship">Internship</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to The Trinity Company</h1>
+        <p>We specialize in Data Science, Machine Learning, Deep Learning, Data Analytics, Database Management, Data Architecture, Predictive Analytics, Data Visualization, Forecasting, Statistical Modeling, and Statistics.</p>
+    </section>
+
+    <section id="services" class="section fade-up">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Data Science</h3>
+                <p>Providing robust data-driven solutions with cutting-edge algorithms.</p>
+            </div>
+            <div class="card">
+                <h3>Machine Learning</h3>
+                <p>Building intelligent systems for prediction, automation, and insights.</p>
+            </div>
+            <div class="card">
+                <h3>Analytics & Visualization</h3>
+                <p>Turning complex data into clear and actionable dashboards.</p>
+            </div>
+            <div class="card">
+                <h3>Database Management</h3>
+                <p>Designing, managing, and optimizing scalable database systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="internship" class="section fade-up">
+        <h2>Internships</h2>
+        <p>We provide internships to university students, giving them real-world exposure and skill development opportunities. Internships may be paid or unpaid, lasting typically a semester or summer.</p>
+        <div class="cta"><a href="mailto:thetrinityc@gmail.com">Apply Now</a></div>
+    </section>
+
+    <section id="careers" class="section fade-up">
+        <h2>Careers</h2>
+        <p>We are hiring freshers and experienced professionals for:</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Web Development</h3>
+            </div>
+            <div class="card">
+                <h3>Data Engineer</h3>
+            </div>
+            <div class="card">
+                <h3>Data Analyst</h3>
+            </div>
+            <div class="card">
+                <h3>Researcher</h3>
+            </div>
+            <div class="card">
+                <h3>Data Scientist</h3>
+            </div>
+            <div class="card">
+                <h3>Machine Learning Engineer</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-up about">
+        <h2>About Us</h2>
+        <p>The Trinity Company was founded in 2022 and operates in the Information Technology & Services sector. With 2-10 employees and a growing network, we are creating a strong platform to connect people with Data Science jobs and internships.</p>
+    </section>
+
+    <section id="contact" class="section fade-up contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:thetrinityc@gmail.com">thetrinityc@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919503447189">+91 9503447189</a></p>
+        <p>Industry: Information Technology & Services</p>
+        <p>Company Size: 2-10 employees</p>
+    </section>
+
+    <footer>
+        <div class="founder">
+            <img src="Arshad.jpeg" alt="Founder Arshad Bagde">
+            <p><strong>Arshad Bagde</strong><br>Founder & CEO, The Trinity Company</p>
+        </div>
+        <p>© <span id="year"></span> The Trinity Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const faders = document.querySelectorAll(".fade-up");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        faders.forEach(f => observer.observe(f));
+    </script>
+</body>
+
+</html>
